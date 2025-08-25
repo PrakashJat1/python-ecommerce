@@ -13,9 +13,16 @@
     <div class="card shadow p-4 rounded-4" style="width: 350px;">
       <h3 class="text-center text-info">OTP sent to {{ email }}</h3>
 
-      <p class="text-center text-warning small">
-        {% for msg in messages %} {{msg}} {% endfor %}
-      </p>
+      {% if messages %}
+          <div class="mb-3">
+            {% for msg in messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+              {{ msg }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
 
       <form action="{% url 'verifyotp' user_id %}" method="post">
         {% csrf_token %}
