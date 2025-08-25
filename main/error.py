@@ -6,7 +6,7 @@ def exception(
     request, exception, exception_view, redirect_to="", render_to="", context={}
 ):
     print(f"An exception occurred inside {exception_view} ", exception)
-    messages.error(request, f"Error inside {exception_view}")
+    messages.error(request, f"Error inside {exception_view}", exception)
 
     if redirect_to != "":
         return redirect(redirect_to)
