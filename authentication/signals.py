@@ -9,7 +9,8 @@ from .models import CustomUser
 def creating_cart_wishlist_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-        Cart.objects.create(user=instance)
-        WishList.objects.create(user=instance)
+        if instance.role == 4:
+            Cart.objects.create(user=instance)
+            WishList.objects.create(user=instance)
     else:
         print(f"{instance.first_name} Updated")
