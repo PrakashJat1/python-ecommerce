@@ -65,7 +65,7 @@ Other: SMTP (for emails), Payment Gateway Integration
 
 Clone the repository:
 
-git clone https://github.com/yourusername/django-ecommerce.git
+git clone git@github.com:PrakashJat1/python-ecommerce.git
 cd django-ecommerce
 
 
